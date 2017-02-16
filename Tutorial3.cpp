@@ -102,7 +102,7 @@ void DeleteNode(node* current,node* rootNode, node* parent, bool head){
 		}
 	}
 }
-node* DeleteNodenode(node* rootNode,node* temp_node)
+node* DeleteNode(node* rootNode,node* temp_node)
 {
     node* current=new node();
     current = rootNode;
@@ -111,7 +111,7 @@ node* DeleteNodenode(node* rootNode,node* temp_node)
 	//initially eleminating the case when we have to Delete the root node itself
 	while(true){
 		if(current==NULL){
-			cout<<"The interval you requested to DeleteNode does not exist"<<endl;
+			cout<<"The interval you requested to Delete does not exist"<<endl;
 			break;
 		}
 		if(temp_node->low < current->low){
@@ -130,7 +130,7 @@ node* DeleteNodenode(node* rootNode,node* temp_node)
 int main()
 {
  node *rootNode = NULL;
- cout<<"Enter how many intervals you want to insert.."<<endl;
+ cout<<"Enter the number of intervals to be inserted.."<<endl;
  int n,l,h;
  cin>>n;
  for(int i=1;i<=n;i++)
@@ -152,9 +152,9 @@ int main()
          cout<<"Overlapping interval is : "<<temp->low<<" "<<temp->high<<endl;
      }
      else
-        cout<<"No Overlapping Interval was found"<<endl;
+        cout<<"No Overlapping Interval was found.."<<endl;
  }
- cout<<"Enter the number of nodes to Delete"<<endl;
+ cout<<"Enter the number of nodes to Delete.."<<endl;
  cin>>n;
  for(int i=1;i<=n;i++)
  {
@@ -167,7 +167,7 @@ int main()
     temp->r = NULL;
 
     DeleteNode(rootNode,temp);
-    cout<<"The given interval has been Deleted"<<endl;
+    cout<<"The requested interval has been deleted.."<<endl;
  }
  return 0;
 }
