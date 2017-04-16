@@ -102,6 +102,6 @@ int main()
     float t0 = clock();
     convexHull(P, n);
     float t1 = clock();
-    cout<<"Total time is"<<(t1-t0)/CLOCKS_PER_SEC<<" seconds"<<endl;
+    cout<<"Total time is "<<(t1-t0)/CLOCKS_PER_SEC<<" seconds"<<endl;
     return 0;
 }
