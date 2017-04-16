@@ -1,12 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
  
-struct Point
+struct Node
 {
     int x, y;
 };
 
-int orientation(Point p, Point q, Point r)
+int orientation(Node p, Node q, Node r)
 {
     int val = (q.y - p.y)*(r.x - q.x)-(q.x - p.x)*(r.y - q.y); 
     if (val == 0) 
@@ -16,14 +16,14 @@ int orientation(Point p, Point q, Point r)
     return 2;
 }
 
-void convexHull(Point points[], int n)
+void convexHull(Node Nodes[], int n)
 {
     if (n < 3) return;
-    vector<Point> hull;
+    vector<Node> hull;
     int l = 0;
     
     for (int i = 1; i < n; i++){
-        if (points[i].x < points[l].x)
+        if (Nodes[i].x < Nodes[l].x)
             l = i;
     }
     
@@ -31,12 +31,12 @@ void convexHull(Point points[], int n)
     
     do
     {
-        hull.push_back(points[p]);
+        hull.push_back(Nodes[p]);
         q = (p+1)%n;
         
         for (int i = 0; i < n; i++)
         {
-           if (orientation(points[p], points[i], points[q]) == 2)
+           if (orientation(Nodes[p], Nodes[i], Nodes[q]) == 2)
                q = i;
         }
         
@@ -53,7 +53,7 @@ int main()
 {
     int n;
     cin>>n;
-    Point *P= new Point[n];
+    Node *P= new Node[n];
     
     for(int i=0;i<n;i++)
     {
